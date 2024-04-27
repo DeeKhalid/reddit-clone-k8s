@@ -34,7 +34,7 @@ data "aws_subnet" "public" {
   vpc_id = data.aws_vpc.default.id
 
   # Include the specific subnets provided
- ids = ["subnet-0a33c129530c97d0a", "subnet-0b16bdbe9d57bb41f"]
+ id = ["subnet-0a33c129530c97d0a", "subnet-0b16bdbe9d57bb41f"]
 }
 
 # Create EKS cluster
@@ -44,7 +44,7 @@ resource "aws_eks_cluster" "example" {
 
   vpc_config {
     # Use the specified subnet IDs
-    subnet_ids = data.aws_subnet_ids.public.ids
+    subnet_ids = data.aws_subnet.public.ids
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
