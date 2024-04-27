@@ -30,7 +30,7 @@ data "aws_vpc" "default" {
 }
 
 # Get public subnets for cluster
-data "aws_subnet_ids" "public" {
+data "aws_subnet" "public" {
   vpc_id = data.aws_vpc.default.id
 
   # Include the specific subnets provided
