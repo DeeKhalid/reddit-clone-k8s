@@ -34,10 +34,7 @@ data "aws_subnet" "public" {
   vpc_id = data.aws_vpc.default.id
 
   # Include the specific subnets provided
-  filter {
-    name   = "subnet-id"
-    values = ["subnet-0a33c129530c97d0a", "subnet-0b16bdbe9d57bb41f"]
-  }
+ ids = ["subnet-0a33c129530c97d0a", "subnet-0b16bdbe9d57bb41f"]
 }
 
 # Create EKS cluster
