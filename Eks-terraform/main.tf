@@ -39,7 +39,7 @@ data "aws_subnet" "public2" {
 
 #cluster provision
 resource "aws_eks_cluster" "example" {
-  name     = "Khalid_CLOUD"
+  name     = "EKS_CLOUD"
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
