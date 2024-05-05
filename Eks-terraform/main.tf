@@ -1,6 +1,3 @@
-Sure, here's the rewritten Terraform code with the necessary changes:
-
-```hcl
 # IAM policy document to allow EKS service to assume roles
 data "aws_iam_policy_document" "assume_role" {
   statement {
