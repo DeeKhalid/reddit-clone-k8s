@@ -1,4 +1,7 @@
- # IAM policy document to allow EKS service to assume roles
+Sure, here's the rewritten Terraform code with the necessary changes:
+
+```hcl
+# IAM policy document to allow EKS service to assume roles
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect = "Allow"
@@ -92,8 +95,8 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryRea
 }
 
 # Additional IAM policy attachment for EKS node group
-resource "aws_iam_role_policy_attachment" "example-AmazonEKSNodeGroupPolicy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSNodeGroupPolicy"
+resource "aws_iam_role_policy_attachment" "example-AWSServiceRoleForAmazonEKSNodegroup" {
+  policy_arn = "arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup"
   role       = aws_iam_role.example1.name
 }
 
@@ -120,6 +123,6 @@ resource "aws_eks_node_group" "example" {
     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
-    aws_iam_role_policy_attachment.example-AmazonEKSNodeGroupPolicy,
+    aws_iam_role_policy_attachment.example-AWSServiceRoleForAmazonEKSNodegroup,
   ]
 }
